@@ -20,9 +20,13 @@ class App extends Component {
   //   this.handleClick = this.handleClick.bind(this);
   // }
 
-  handleClick = () => {
-    console.log(this.state.x);
-  };
+  // handleClick = () => { // this 를 쓸거면, arrow function(=>)을 써줘야 binding되서 쓸수 있다.(그냥 써...)
+  //   console.log(this.state.x);
+  // };
+  handleClick = (a, b, c) => {
+    // this 를 쓸거면, arrow function(=>)을 써줘야 binding되서 쓸수 있다.(그냥 써...)
+    console.log(this, a, b, c, arguments);
+  }
 
   render() {
     return (
