@@ -25,15 +25,12 @@ const ListItem = (
 };
 
 const LectureGoalList = props => {
-  console.log(props);
+  //console.log(props);
   return (
     <div style={styles}>
       <div>{props.title}</div>
       <ul style={ulStyles}>
         {props.items.map((item, index) => <ListItem key={index} item={item} />)}
-        <li>1. React 개발에 필요한 환경을 구축한다.</li>
-        <li>2. 새로운 자바스크립트 문법을 익힌다.</li>
-        <li>3. 개발 편의를 위한 VSCode IDE를 익힌다.</li>
       </ul>
     </div>
   ); // <ListItem key={index} 를 입력하지 않으면, react 가 몇번째 list 인지를 몰라서 Warning을 뱉는다.

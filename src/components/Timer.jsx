@@ -5,7 +5,8 @@ moment.locale('ko');
 const TIME_FORMAT = 'A hh:mm';
 class Timer extends Component {
   constructor(props) {
-    console.log('1111', props);
+    //console.log('1111', props);
+    //console.log('constuctor: 타이머 생성');
     super(props); // super를 호출한 다음에, 클래스에 담는 변수인 멤버변수 this를 쓸 수 있음.
 
     this.state = {
@@ -18,24 +19,24 @@ class Timer extends Component {
       });
     }, 1000);
 
-    console.log('6666666', this.props);
+    //console.log('6666666', this.props);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const prevDateStr = this.state.date.format(TIME_FORMAT);
-    const nextDateStr = nextState.date.format(TIME_FORMAT);
-    return prevDateStr !== nextDateStr;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   const prevDateStr = this.state.date.format(TIME_FORMAT);
+  //   const nextDateStr = nextState.date.format(TIME_FORMAT);
+  //   return prevDateStr !== nextDateStr;
+  // }
 
   handleTick = () => {
-    console.log(1);
+    //console.log(1);
     this.forceUpdate(); // 강제 업데이트 하는 방법으로 하거나, shouldComponentUpdate로 update할 것인지 말것인지(true / false)를 정한다.
   };
 
   render() {
-    console.log('render...');
-    const { expireDate, onComplete } = this.props;
-    const { date } = this.state;
+    //console.log('child render...');
+    const { onComplete } = this.props;
+    const { expireDate, date } = this.state;
 
     if (moment(expireDate) < date) {
       setTimeout(() => {
@@ -53,7 +54,8 @@ class Timer extends Component {
     );
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
+    //console.log('componentWillUmount: 타이머 언마운트');
     if (this.nTimer) {
       clearInterval(this.nTimer);
       this.nTimer = null;

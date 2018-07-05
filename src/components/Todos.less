@@ -1,0 +1,27 @@
+.Todos {
+  border: 1px solid #ccc;
+  text-align: left;
+  padding: 20px;
+
+  .icon {
+    // display: none;
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 10px;
+
+    li:hover {
+      .icon {
+        display: inline-block;
+      }
+    }
+  }
+
+  @media screen and(max-width: 600px) {
+    margin: 10px;
+  }
+}
